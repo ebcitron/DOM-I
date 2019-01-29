@@ -42,24 +42,33 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 
-const headerNav = document.querySelector('a').style.color = 'green';
+let selectNavLinks = document.querySelectorAll("nav a");
+selectNavLinks.forEach((element, i ) => {
+  element.innerHTML = siteContent.nav[`nav-item-${i+1}`];
+})
+
+const headerNav = document.querySelector('a');
 
 const navA = document.querySelectorAll('a');
 
+selectNavLinks.forEach((link,i) => {
+  link.style.color = 'green';
+})
+
+selectNavLinks = document.getElementsByTagName('nav')[0];
+let createNew = (name) => {
+  let newNode =
+  document.createElement('a');
+  newNode.innerHTML = name;
+  return newNode;
+}
+
+
+selectNavLinks.prepend(createNew('extre item 1'));
+selectNavLinks.append(createNew('extra item 2'));
 
 console.log(headerNav);
 navA[0].textContent = 'Services';
-navA[0].style.color = 'green';
-
-navA[1].style.color = 'green';
-
-navA[2].style.color = 'green';
-
-navA[3].style.color = 'green';
-
-navA[4].style.color = 'green';
-
-navA[5].style.color = 'green';
 
 navA[1].textContent = 'Product';
 
